@@ -25,7 +25,7 @@ def search_prompt(arguments: dict[str, str]) -> types.GetPromptResult:
             types.PromptMessage(
                 role="user",
                 content=types.TextContent(
-                    type="text", text=f"Searching for {arguments['query']}"
+                    type="text", text=f"Searching for {arguments['query']} using searXNG"
                 ),
             )
         ],
