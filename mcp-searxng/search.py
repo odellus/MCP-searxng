@@ -30,7 +30,7 @@ class Infobox(BaseModel):
     infobox: str
     id: str
     content: str
-    img_src: str
+    img_src: Optional[str] = None
     urls: list[InfoboxUrl]
     attributes: list[str]
     engine: str
