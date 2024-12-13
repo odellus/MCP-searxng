@@ -3,8 +3,8 @@ from mcp.server.models import InitializationOptions
 import mcp.server.stdio
 
 from server import server
-import prompts
-import tools
+import prompts # noqa: F401
+import tools # noqa: F401
 
 async def run():
     # Run the server as STDIO
