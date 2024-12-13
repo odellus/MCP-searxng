@@ -10,15 +10,15 @@ class SearchResult(BaseModel):
     url: str
     title: str
     content: str
-    thumbnail: Optional[str] = None
-    engine: str
-    parsed_url: list[str]
-    template: str
-    engines: list[str]
-    positions: list[int]
-    publishedDate: Optional[str] = None
-    score: float
-    category: str
+    # thumbnail: Optional[str] = None
+    # engine: str
+    # parsed_url: list[str]
+    # template: str
+    # engines: list[str]
+    # positions: list[int]
+    # publishedDate: Optional[str] = None
+    # score: float
+    # category: str
 
 
 class InfoboxUrl(BaseModel):
@@ -30,22 +30,22 @@ class Infobox(BaseModel):
     infobox: str
     id: str
     content: str
-    img_src: Optional[str] = None
+    # img_src: Optional[str] = None
     urls: list[InfoboxUrl]
-    attributes: list[str]
-    engine: str
-    engines: list[str]
+    # attributes: list[str]
+    # engine: str
+    # engines: list[str]
 
 
 class Response(BaseModel):
     query: str
     number_of_results: int
     results: list[SearchResult]
-    answers: list[str]
-    corrections: list[str]
+    # answers: list[str]
+    # corrections: list[str]
     infoboxes: list[Infobox]
-    suggestions: list[str]
-    unresponsive_engines: list[str]
+    # suggestions: list[str]
+    # unresponsive_engines: list[str]
 
 
 async def search(query: str, limit: int = 3) -> str:
@@ -65,6 +65,9 @@ async def search(query: str, limit: int = 3) -> str:
         text += f"ID: {infobox.id}\n"
         text += f"Content: {infobox.content}\n"
         text += "\n"
+
+    if data.number_of_results == 0:
+        text += "No results found"
 
     for index, result in enumerate(data.results):
         text += f"Title: {result.title}\n"
