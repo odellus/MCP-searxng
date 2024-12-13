@@ -2,6 +2,7 @@ from server import server
 import mcp.types as types
 from search import search
 
+
 @server.list_tools()
 async def list_tools() -> list[types.Tool]:
     return [
@@ -14,28 +15,28 @@ async def list_tools() -> list[types.Tool]:
                     "query": {"type": "string"},
                 },
                 "required": ["query"],
-            }
+            },
         )
     ]
 
-async def search_tool(arguments: dict[str, str]) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
+
+async def search_tool(
+    arguments: dict[str, str],
+) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
     query: str = arguments["query"]
     result = await search(query)
 
-    return [types.TextContent(
-        type="text",
-        text=result
-    )]
+    return [types.TextContent(type="text", text=result)]
+
 
 @server.call_tool()
 async def get_tool(
-    name: str,
-    arguments: dict[str, str] | None
+    name: str, arguments: dict[str, str] | None
 ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
     if arguments is None:
         arguments = {}
 
     if name == "search":
         return await search_tool(arguments)
-    
+
     raise ValueError(f"Unknown tool: {name}")

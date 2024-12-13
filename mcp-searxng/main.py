@@ -3,8 +3,9 @@ from mcp.server.models import InitializationOptions
 import mcp.server.stdio
 
 from server import server
-import prompts # noqa: F401
-import tools # noqa: F401
+import prompts  # noqa: F401
+import tools  # noqa: F401
+
 
 async def run():
     # Run the server as STDIO
@@ -18,10 +19,12 @@ async def run():
                 capabilities=server.get_capabilities(
                     notification_options=NotificationOptions(),
                     experimental_capabilities={},
-                )
-            )
+                ),
+            ),
         )
+
 
 if __name__ == "__main__":
     import asyncio
+
     asyncio.run(run())
