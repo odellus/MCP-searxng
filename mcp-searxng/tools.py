@@ -1,3 +1,4 @@
+from pydoc import text
 from server import server
 import mcp.types as types
 from search import search
@@ -36,7 +37,12 @@ async def get_tool(
     if arguments is None:
         arguments = {}
 
-    if name == "search":
-        return await search_tool(arguments)
+    try:
+        if name == "search":
+            return await search_tool(arguments)
+
+    except Exception as e:
+        text = f"Tool {name} failed with error: {e}"
+        return [types.TextContent(type="text", text=text)]
 
     raise ValueError(f"Unknown tool: {name}")
