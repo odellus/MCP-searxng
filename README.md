@@ -2,6 +2,8 @@
 
 An MCP server for connecting agentic systems to search systems via searXNG.
 
+<a href="https://glama.ai/mcp/servers/sl2zl8vaz8"><img width="380" height="200" src="https://glama.ai/mcp/servers/sl2zl8vaz8/badge" /></a>
+
 ## Tools
 
 Search the web with searXNG
