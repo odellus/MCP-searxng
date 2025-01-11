@@ -1,4 +1,3 @@
-from pydoc import text
 from server import server
 import mcp.types as types
 from search import search
