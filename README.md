@@ -24,6 +24,8 @@ search(query: str) -> f"Searching for {query} using searXNG"
 
 Clone the repo and add this json to claude desktop
 
+you can run this server with `uvx mcp-searxng`, or use a local copy of the repo
+
 ```json
 {
   "mcpServers": {
