@@ -66,8 +66,8 @@ async def search(query: str, limit: int = 3) -> str:
         text += f"Content: {infobox.content}\n"
         text += "\n"
 
-    if data.number_of_results == 0:
-        text += "No results found"
+    if len(data.results) == 0:
+        text += "No results found\n"
 
     for index, result in enumerate(data.results):
         text += f"Title: {result.title}\n"
