@@ -10,7 +10,7 @@ An MCP server for connecting agentic systems to search systems via [searXNG](htt
 
 ## Tools
 
-Search the web with searXNG
+Search the web with SearXNG
 
 ## Prompts
 
@@ -20,9 +20,28 @@ search(query: str) -> f"Searching for {query} using searXNG"
 
 ## Usage
 
+### via uvx
+
+1) configure your client JSON like
+
+```json
+{
+  "mcpServers": {
+    "searxng": {
+      "command": "uvx", 
+      "args": [
+        "mcp-searxng"
+      ]
+    }
+  }
+}
+```
+
+### via git clone
+
 1) Add the server to claude desktop (the entrypoint is main.py)
 
-Clone the repo and add this json to claude desktop
+Clone the repo and add this JSON to claude desktop
 
 you can run this server with `uvx mcp-searxng`, or use a local copy of the repo
 
@@ -42,9 +61,11 @@ you can run this server with `uvx mcp-searxng`, or use a local copy of the repo
 }
 ```
 
-obviously you will need to change the paths to match your environment
+you will need to change the paths to match your environment
 
-2) set the environment variable `SEARXNG_URL` to the url of the searxng server (default is `http://localhost:8080`)
+### Custom SearXNG URL
+
+2) set the environment variable `SEARXNG_URL` to the URL of the searxng server (default is `http://localhost:8080`)
 
 3) run your MCP client and you should be able to search the web with searxng
 
