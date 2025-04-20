@@ -49,7 +49,7 @@ class Response(BaseModel):
 
 
 async def search(query: str, limit: int = 3) -> str:
-    client = AsyncClient(base_url=str(getenv("SEARXNG_URL", "http://localhost:8080")))
+    client = AsyncClient(base_url=str(getenv("SEARXNG_URL", "http://localhost:8082")))
 
     params: dict[str, str] = {"q": query, "format": "json"}
 
